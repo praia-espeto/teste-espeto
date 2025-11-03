@@ -1,12 +1,10 @@
-import fetch from 'node-fetch';
-
 export const handler = async (event) => {
   try {
-    const { nome, telefone, endereco, qtd,item, total } = JSON.parse(event.body);
+    const { nome, status } = JSON.parse(event.body);
 
-    // ⚙️ Substitua pelos seus dados do Notion:
-    const NOTION_API_KEY = process.env.NOTION_API_KEY; // Defina no painel do Netlify
-    const DATABASE_ID = process.env.NOTION_DATABASE_ID; // Defina no painel do Netlify
+    // ⚙️ Suas variáveis de ambiente (definidas no painel do Netlify)
+    const NOTION_API_KEY = process.env.NOTION_API_KEY;
+    const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
     const resposta = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
@@ -19,7 +17,7 @@ export const handler = async (event) => {
         parent: { database_id: DATABASE_ID },
         properties: {
           Nome: { title: [{ text: { content: nome } }] },
-          Telefone: { rich_text: [{ text: { content: telefone } }] },
+          Status: { rich_text: [{ text: { content: status } }] },
         },
       }),
     });
@@ -34,7 +32,7 @@ export const handler = async (event) => {
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error(error);
+    console.error('Erro na função:', error.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.message }),
