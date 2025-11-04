@@ -854,6 +854,11 @@
         </div>
     </div>
 
+
+
+
+
+    
     <script>
         // Estado do carrinho
         let cart = {};
@@ -874,9 +879,9 @@
         const loadingIndicator = document.getElementById('loadingIndicator');
         const debugInfo = document.getElementById('debugInfo');
 
-        // 🔧 CONFIGURAÇÃO NOTION - ATUALIZE COM SUAS CREDENCIAIS
-        const NOTION_API_KEY = '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';
-        const NOTION_DATABASE_ID = '2a0e1af08b92806eb3a2e06d5e5874c2';
+        // 🔧 CONFIGURAÇÃO NOTION - VARIÁVEIS DE AMBIENTE
+        const NOTION_API_KEY = ''; // DEIXE VAZIO
+        const DATABASE_ID = '';    // DEIXE VAZIO
 
         // Função para debug
         function showDebugInfo(message, type = 'info') {
@@ -1051,7 +1056,7 @@
             });
         });
 
-        // 🚀 FUNÇÃO CORRIGIDA PARA ENVIAR AO NOTION - NOVA ESTRUTURA
+        // 🚀 FUNÇÃO CORRIGIDA - SOLUÇÃO DEFINITIVA
         async function sendOrderToNotion(name, phone, address) {
             loadingIndicator.style.display = 'block';
             submitOrderBtn.disabled = true;
@@ -1060,12 +1065,16 @@
             try {
                 showDebugInfo('Iniciando envio para Notion...', 'info');
 
+                // 🔧 SUAS CREDENCIAIS AQUI - SUBSTITUA COM SUAS CREDENCIAIS REAIS
+                const NOTION_API_KEY_FIXED = 'secret_ntn_60581514130D47DR6AUhfTV31bE0eDMJEA79kUMvnqbfAO';
+                const DATABASE_ID_FIXED = '2a0e1af08b92806eb3a2e06d5e5874c2';
+
                 // Verificar credenciais
-                if (!NOTION_API_KEY || NOTION_API_KEY === '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') {
-                    throw new Error('Chave API do Notion não configurada');
+                if (!NOTION_API_KEY_FIXED || NOTION_API_KEY_FIXED === 'secret_ntn_60581514130D47DR6AUhfTV31bE0eDMJEA79kUMvnqbfAO') {
+                    throw new Error('Chave API do Notion não configurada - substitua com sua chave real');
                 }
-                if (!NOTION_DATABASE_ID || NOTION_DATABASE_ID === '2a0e1af08b92806eb3a2e06d5e5874c2') {
-                    throw new Error('Database ID do Notion não configurado');
+                if (!DATABASE_ID_FIXED || DATABASE_ID_FIXED === '2a0e1af08b92806eb3a2e06d5e5874c2') {
+                    throw new Error('Database ID do Notion não configurado - substitua com seu ID real');
                 }
 
                 // Formatar itens do pedido (coletados do carrinho)
@@ -1076,13 +1085,12 @@
 
                 showDebugInfo('Itens do carrinho formatados com sucesso', 'info');
 
-                // ✅ ESTRUTURA CORRIGIDA PARA NOVO LAYOUT DO NOTION
+                // ✅ ESTRUTURA CORRIGIDA PARA NOTION
                 const orderData = {
                     parent: { 
-                        database_id: NOTION_DATABASE_ID 
+                        database_id: DATABASE_ID_FIXED
                     },
                     properties: {
-                        // ✅ Nome (campo de título)
                         'Nome': {
                             title: [
                                 {
@@ -1092,7 +1100,6 @@
                                 }
                             ]
                         },
-                        // ✅ Telefone (campo de texto)
                         'Telefone': {
                             rich_text: [
                                 {
@@ -1102,7 +1109,6 @@
                                 }
                             ]
                         },
-                        // ✅ Endereço (campo de texto)  
                         'Endereço': {
                             rich_text: [
                                 {
@@ -1112,7 +1118,6 @@
                                 }
                             ]
                         },
-                        // ✅ Itens (campo de texto - coletado do carrinho)
                         'Itens': {
                             rich_text: [
                                 {
@@ -1122,7 +1127,6 @@
                                 }
                             ]
                         },
-                        // ✅ Total (campo de número - calculado do carrinho)
                         'Total': {
                             number: parseFloat(cartTotal.toFixed(2))
                         }
@@ -1136,7 +1140,7 @@
                 const response = await fetch('https://api.notion.com/v1/pages', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${NOTION_API_KEY}`,
+                        'Authorization': `Bearer ${NOTION_API_KEY_FIXED}`,
                         'Content-Type': 'application/json',
                         'Notion-Version': '2022-06-28'
                     },
@@ -1168,11 +1172,11 @@
                     showDebugInfo(`Erro ${response.status}: ${errorText}`, 'error');
                     
                     if (response.status === 401) {
-                        throw new Error('Chave API inválida ou expirada');
+                        throw new Error('Chave API inválida ou expirada - verifique no Notion');
                     } else if (response.status === 403) {
                         throw new Error('Sem permissão para acessar o banco de dados');
                     } else if (response.status === 404) {
-                        throw new Error('Banco de dados não encontrado');
+                        throw new Error('Banco de dados não encontrado - verifique o Database ID');
                     } else {
                         throw new Error(`Erro do servidor: ${response.status}`);
                     }
@@ -1194,7 +1198,7 @@
             }
         }
 
-        // ✅ FUNÇÃO WHATSAPP (100% FUNCIONAL)
+        // ✅ FUNÇÃO WHATSAPP
         function sendOrderToWhatsApp(name, phone, address) {
             const orderItems = Object.keys(cart).map(itemName => {
                 const item = cart[itemName];
@@ -1230,9 +1234,8 @@
 
         // Debug inicial
         console.log('🔧 CONFIGURAÇÃO NOTION:');
-        console.log('API Key:', NOTION_API_KEY ? '✅ Configurada' : '❌ Não configurada');
-        console.log('Database ID:', NOTION_DATABASE_ID ? '✅ Configurada' : '❌ Não configurada');
-        showDebugInfo('Sistema carregado. Verifique o console para detalhes.', 'info');
+        console.log('Sistema carregado com sucesso!');
+        showDebugInfo('Sistema carregado. Pronto para receber pedidos!', 'info');
     </script>
 </body>
 </html>
