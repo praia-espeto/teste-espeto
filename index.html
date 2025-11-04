@@ -564,7 +564,7 @@
 
 <body>
     <div class="cardapio-container">
-        <!-- Imagem de fundo - substitua pelo seu arquivo -->
+        <!-- Imagem de fundo -->
         <div class="background-image" style="background: linear-gradient(135deg, #D35400, #E67E22);">
             <img src="img/bg-sites.png" alt="Background Sorocabanos" class="background-image">
         </div>
@@ -588,8 +588,7 @@
                             <h3 class="item-name">EL TORO BRAVO</h3>
                             <span class="item-price">R$ 14,00</span>
                         </div>
-                        <p class="item-description">Suculentos cubos de carne bovina, marinados em especiarias
-                            mexicanas, macios e cheios de sabor.</p>
+                        <p class="item-description">Suculentos cubos de carne bovina, marinados em especiarias mexicanas, macios e cheios de sabor.</p>
                         <span class="badge badge-spicy">PICANTE</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -612,8 +611,7 @@
                             <h3 class="item-name">POLLO TROPICAL</h3>
                             <span class="item-price">R$ 12,00</span>
                         </div>
-                        <p class="item-description">Tentos pedaços de peito de frango, com um toque cítrico e temperos
-                            do sol.</p>
+                        <p class="item-description">Tentos pedaços de peito de frango, com um toque cítrico e temperos do sol.</p>
                         <span class="badge badge-spicy">CÍTRICO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -636,8 +634,7 @@
                             <h3 class="item-name">CHORIZO CALIENTE</h3>
                             <span class="item-price">R$ 11,00</span>
                         </div>
-                        <p class="item-description">Linguiça artesanal com pimenta suave e um defumado irresistível,
-                            para acender seu paladar.</p>
+                        <p class="item-description">Linguiça artesanal com pimenta suave e um defumado irresistível, para acender seu paladar.</p>
                         <span class="badge badge-spicy">DEFUMADO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -660,8 +657,7 @@
                             <h3 class="item-name">FIESTA MISTA</h3>
                             <span class="item-price">R$ 15,00</span>
                         </div>
-                        <p class="item-description">A celebração perfeita: carne, frango e linguiça em uma só festa de
-                            sabores.</p>
+                        <p class="item-description">A celebração perfeita: carne, frango e linguiça em uma só festa de sabores.</p>
                         <span class="badge badge-mixed">MISTO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -684,8 +680,7 @@
                             <h3 class="item-name">QUESO DEL SOL</h3>
                             <span class="item-price">R$ 10,00</span>
                         </div>
-                        <p class="item-description">Cubos de queijo coalho grelhados até a perfeição, crocantes por fora
-                            e derretendo por dentro.</p>
+                        <p class="item-description">Cubos de queijo coalho grelhados até a perfeição, crocantes por fora e derretendo por dentro.</p>
                         <span class="badge badge-cheese">QUEIJO COALHO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -708,8 +703,7 @@
                             <h3 class="item-name">JARDÍN SECRETO</h3>
                             <span class="item-price">R$ 11,00</span>
                         </div>
-                        <p class="item-description">Uma seleção fresca e colorida de legumes da estação, grelhados e
-                            temperados com ervas aromáticas.</p>
+                        <p class="item-description">Uma seleção fresca e colorida de legumes da estação, grelhados e temperados com ervas aromáticas.</p>
                         <span class="badge badge-veg">VEGETARIANO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -732,8 +726,7 @@
                             <h3 class="item-name">CORAZÓN VALIENTE</h3>
                             <span class="item-price">R$ 12,00</span>
                         </div>
-                        <p class="item-description">Corações de frango tenros e saborosos, com um tempero secreto que
-                            conquista.</p>
+                        <p class="item-description">Corações de frango tenros e saborosos, com um tempero secreto que conquista.</p>
                         <span class="badge badge-spicy">TEMPERO SECRETO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -756,8 +749,7 @@
                             <h3 class="item-name">PAN DE AJO PICANTE</h3>
                             <span class="item-price">R$ 8,00</span>
                         </div>
-                        <p class="item-description">Pão crocante com um creme de alho especial e um leve toque picante.
-                        </p>
+                        <p class="item-description">Pão crocante com um creme de alho especial e um leve toque picante.</p>
                         <span class="badge badge-spicy">ACOMPANHAMENTO</span>
                         <div class="cart-controls">
                             <div class="quantity-controls">
@@ -792,7 +784,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- Rodapé -->
@@ -854,11 +845,6 @@
         </div>
     </div>
 
-
-
-
-
-    
     <script>
         // Estado do carrinho
         let cart = {};
@@ -879,9 +865,9 @@
         const loadingIndicator = document.getElementById('loadingIndicator');
         const debugInfo = document.getElementById('debugInfo');
 
-        // 🔧 CONFIGURAÇÃO NOTION - VARIÁVEIS DE AMBIENTE
-        const NOTION_API_KEY = ''; // DEIXE VAZIO
-        const DATABASE_ID = '';    // DEIXE VAZIO
+        // 🔧 CONFIGURAÇÃO NOTION
+        const NOTION_API_KEY = 'secret_ntn_60581514130D47DR6AUhfTV31bE0eDMJEA79kUMvnqbfAO';
+        const DATABASE_ID = '2a0e1af08b92806eb3a2e06d5e5874c2';
 
         // Função para debug
         function showDebugInfo(message, type = 'info') {
@@ -1056,7 +1042,7 @@
             });
         });
 
-        // 🚀 FUNÇÃO CORRIGIDA - SOLUÇÃO DEFINITIVA
+        // 🚀 FUNÇÃO PARA ENVIAR AO NOTION
         async function sendOrderToNotion(name, phone, address) {
             loadingIndicator.style.display = 'block';
             submitOrderBtn.disabled = true;
@@ -1065,19 +1051,7 @@
             try {
                 showDebugInfo('Iniciando envio para Notion...', 'info');
 
-                // 🔧 SUAS CREDENCIAIS AQUI - SUBSTITUA COM SUAS CREDENCIAIS REAIS
-                const NOTION_API_KEY_FIXED = 'secret_ntn_60581514130D47DR6AUhfTV31bE0eDMJEA79kUMvnqbfAO';
-                const DATABASE_ID_FIXED = '2a0e1af08b92806eb3a2e06d5e5874c2';
-
-                // Verificar credenciais
-                if (!NOTION_API_KEY_FIXED || NOTION_API_KEY_FIXED === 'secret_ntn_60581514130D47DR6AUhfTV31bE0eDMJEA79kUMvnqbfAO') {
-                    throw new Error('Chave API do Notion não configurada - substitua com sua chave real');
-                }
-                if (!DATABASE_ID_FIXED || DATABASE_ID_FIXED === '2a0e1af08b92806eb3a2e06d5e5874c2') {
-                    throw new Error('Database ID do Notion não configurado - substitua com seu ID real');
-                }
-
-                // Formatar itens do pedido (coletados do carrinho)
+                // Formatar itens do pedido
                 const orderItems = Object.keys(cart).map(itemName => {
                     const item = cart[itemName];
                     return `${itemName} (${item.quantity}x) - R$ ${(item.price * item.quantity).toFixed(2)}`;
@@ -1085,10 +1059,10 @@
 
                 showDebugInfo('Itens do carrinho formatados com sucesso', 'info');
 
-                // ✅ ESTRUTURA CORRIGIDA PARA NOTION
+                // Estrutura para Notion
                 const orderData = {
                     parent: { 
-                        database_id: DATABASE_ID_FIXED
+                        database_id: DATABASE_ID
                     },
                     properties: {
                         'Nome': {
@@ -1134,13 +1108,12 @@
                 };
 
                 showDebugInfo('Dados preparados para envio', 'info');
-                console.log('📦 Dados enviados:', orderData);
 
-                // ✅ REQUISIÇÃO PARA NOTION API
+                // Requisição para Notion API
                 const response = await fetch('https://api.notion.com/v1/pages', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${NOTION_API_KEY_FIXED}`,
+                        'Authorization': `Bearer ${NOTION_API_KEY}`,
                         'Content-Type': 'application/json',
                         'Notion-Version': '2022-06-28'
                     },
@@ -1171,15 +1144,7 @@
                     console.error('❌ Erro da API:', response.status, errorText);
                     showDebugInfo(`Erro ${response.status}: ${errorText}`, 'error');
                     
-                    if (response.status === 401) {
-                        throw new Error('Chave API inválida ou expirada - verifique no Notion');
-                    } else if (response.status === 403) {
-                        throw new Error('Sem permissão para acessar o banco de dados');
-                    } else if (response.status === 404) {
-                        throw new Error('Banco de dados não encontrado - verifique o Database ID');
-                    } else {
-                        throw new Error(`Erro do servidor: ${response.status}`);
-                    }
+                    throw new Error(`Erro do servidor: ${response.status}`);
                 }
 
             } catch (error) {
@@ -1233,8 +1198,7 @@
         }
 
         // Debug inicial
-        console.log('🔧 CONFIGURAÇÃO NOTION:');
-        console.log('Sistema carregado com sucesso!');
+        console.log('🔧 SISTEMA CARREGADO COM SUCESSO');
         showDebugInfo('Sistema carregado. Pronto para receber pedidos!', 'info');
     </script>
 </body>
