@@ -876,7 +876,7 @@
 
         // 🔧 CONFIGURAÇÃO NOTION - ATUALIZE COM SUAS CREDENCIAIS
         const NOTION_API_KEY = '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';
-        const DATABASE_ID = '2a0e1af08b92806eb3a2e06d5e5874c2';
+        const NOTION_DATABASE_ID = '2a0e1af08b92806eb3a2e06d5e5874c2';
 
         // Função para debug
         function showDebugInfo(message, type = 'info') {
@@ -1064,7 +1064,7 @@
                 if (!NOTION_API_KEY || NOTION_API_KEY === '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') {
                     throw new Error('Chave API do Notion não configurada');
                 }
-                if (!DATABASE_ID || DATABASE_ID === '2a0e1af08b92806eb3a2e06d5e5874c2') {
+                if (!NOTION_DATABASE_ID || NOTION_DATABASE_ID === '2a0e1af08b92806eb3a2e06d5e5874c2') {
                     throw new Error('Database ID do Notion não configurado');
                 }
 
@@ -1079,7 +1079,7 @@
                 // ✅ ESTRUTURA CORRIGIDA PARA NOVO LAYOUT DO NOTION
                 const orderData = {
                     parent: { 
-                        database_id: DATABASE_ID 
+                        database_id: NOTION_DATABASE_ID 
                     },
                     properties: {
                         // ✅ Nome (campo de título)
@@ -1231,7 +1231,7 @@
         // Debug inicial
         console.log('🔧 CONFIGURAÇÃO NOTION:');
         console.log('API Key:', NOTION_API_KEY ? '✅ Configurada' : '❌ Não configurada');
-        console.log('Database ID:', DATABASE_ID ? '✅ Configurada' : '❌ Não configurada');
+        console.log('Database ID:', NOTION_DATABASE_ID ? '✅ Configurada' : '❌ Não configurada');
         showDebugInfo('Sistema carregado. Verifique o console para detalhes.', 'info');
     </script>
 </body>
